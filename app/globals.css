@@ -1,5 +1,13 @@
+:root{
+  --main: #d64252;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+b {
+  color: var(--main);
 }

@@ -2,9 +2,9 @@ import { TIME_TO_REVALIDATE } from "./utils/constants";
 import { formatDateLongText } from "./utils/date";
 
 const getDaysUntilText = (amountOfDays) => {
-  if (amountOfDays === 0) return 'Ya arrancó el finde largo 🥳';
-  if (amountOfDays <= 7) return `El finde largo arranca en ${amountOfDays} días 🥵`;
-  return `Faltan ${amountOfDays} días para el finde largo 😴`;
+  if (amountOfDays === 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
+  if (amountOfDays <= 7) return <>El <b>finde largo</b> arranca en <b>{amountOfDays}</b> días 🥵</>;
+  return <>Faltan <b>{amountOfDays}</b> días para el <b>finde largo</b>😴</>;
 }
 
 export default async function Home() {
