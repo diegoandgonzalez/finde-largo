@@ -1,5 +1,7 @@
-:root{
+:root {
   --main: #d64252;
+  --background: #201e23;
+  --textColor: white;
 }
 
 * {
@@ -8,6 +10,14 @@
   margin: 0;
 }
 
+body {
+  background-color: var(--background);
+}
+
 b {
   color: var(--main);
+}
+
+h1, p {
+  color: var(--textColor);
 }
