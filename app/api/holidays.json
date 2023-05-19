@@ -1,0 +1,88 @@
+{
+    "data": [
+        {
+            "date": "2023/01/01",
+            "description": "Año Nuevo"
+        },
+        {
+            "date": "2023/02/20",
+            "description": "Carnaval"
+        },
+        {
+            "date": "2023/02/21",
+            "description": "Carnaval"
+        },
+        {
+            "date": "2023/03/24",
+            "description": "Día Nacional de la Memoria por la Verdad y la Justicia"
+        },
+        {
+            "date": "2023/04/02",
+            "description": "Día del Veterano y de los Caídos en la Guerra de Malvinas"
+        },
+        {
+            "date": "2023/04/06",
+            "description": "Jueves Santo Festividad Cristiana"
+        },
+        {
+            "date": "2023/04/06",
+            "description": "Jueves Santo Festividad Cristiana"
+        },
+        {
+            "date": "2023/04/07",
+            "description": "Viernes Santo Festividad Cristiana"
+        },
+        {
+            "date": "2023/05/01",
+            "description": "Día del Trabajador"
+        },
+        {
+            "date": "2023/05/25",
+            "description": "Día de la Revolución de Mayo"
+        },
+        {
+            "date": "2023/05/26",
+            "description": "Feriado con fines turísticos"
+        },
+        {
+            "date": "2023/06/17",
+            "description": "Paso a la Inmortalidad del Gral. Don Martín Miguel de Güemes"
+        },
+        {
+            "date": "2023/06/19",
+            "description": "Feriado con fines turísticos"
+        },
+        {
+            "date": "2023/06/20",
+            "description": "Paso a la Inmortalidad del Gral. Manuel Belgrano"
+        },
+        {
+            "date": "2023/07/09",
+            "description": "Día de la Independencia"
+        },
+        {
+            "date": "2023/08/21",
+            "description": "Paso a la Inmortalidad del Gral. José de San Martín (17/8)"
+        },
+        {
+            "date": "2023/10/13",
+            "description": "Feriado con fines turísticos"
+        },
+        {
+            "date": "2023/10/16",
+            "description": "Día del Respeto a la Diversidad Cultural (12/10)"
+        },
+        {
+            "date": "2023/11/20",
+            "description": "Día de la Soberanía Nacional"
+        },
+        {
+            "date": "2023/12/08",
+            "description": "Inmaculada Concepción de María"
+        },
+        {
+            "date": "2023/12/25",
+            "description": "Navidad"
+        }
+    ]
+}
