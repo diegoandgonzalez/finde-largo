@@ -1,7 +1,7 @@
 import {
     isDateOnWeekend,
-    createDateFromYYYYMMDD,
+    getDateObjectFromYYYYMMDD,
 } from '../utils/date';
 import holidays from './holidays.json';
 
-export const getHolidaysInWorkDays = () => holidays.data.filter((holiday) => !isDateOnWeekend(createDateFromYYYYMMDD(holiday.date)));
+export const getHolidaysInWorkDays = () => holidays.data.filter((holiday) => !isDateOnWeekend(getDateObjectFromYYYYMMDD(holiday.date)));
