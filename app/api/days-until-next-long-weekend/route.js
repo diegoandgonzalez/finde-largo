@@ -8,10 +8,14 @@ import {
 
 export async function GET() {
     const nextHoliday = getData().find(item => getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0) >= (new Date()).setHours(0, 0, 0, 0));
-    if(!nextHoliday){
-        // return error
+    if (!nextHoliday) {
+        return new Response(
+            'Next holiday not found',
+            {
+                status: 404,
+            });
     }
-    
+
     const daysUntilHoliday = getDaysBetweenDates(new Date(), getDateObjectFromYYYYMMDD(nextHoliday?.date));
 
     return NextResponse.json({
