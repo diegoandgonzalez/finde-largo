@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getData } from '../getter';
+import { getHolidaysInWorkDays } from '../getter';
 import {
     getDateObjectFromYYYYMMDD,
     getDaysBetweenDates,
@@ -7,7 +7,14 @@ import {
 } from '@/app/utils/date';
 
 export async function GET() {
-    const nextHoliday = getData().find(item => getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0) >= (new Date()).setHours(0, 0, 0, 0));
+    const nextHoliday = getHolidaysInWorkDays()
+        .find(item => {
+            const dateToCompare = getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0);
+            const today = (new Date()).setHours(0, 0, 0, 0);
+
+            return dateToCompare >= today;
+        });
+
     if (!nextHoliday) {
         return new Response(
             'Next holiday not found',
