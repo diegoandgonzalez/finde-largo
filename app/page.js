@@ -9,14 +9,12 @@ export default async function Home() {
       {
         data ?
           <>
-            <h1>{data.daysUntilHoliday}</h1>
+            <h1>Faltan {data.daysUntilHoliday} días para el finde largo 😴</h1>
             <p>{data.date}</p>
             <p>{data.description}</p>
           </>
           :
-          <h1>
-            Error
-          </h1>
+          <h1>Algo malió sal 🧂</h1>
       }
     </main>
   )
