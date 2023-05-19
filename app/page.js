@@ -8,7 +8,7 @@ const getDaysUntilText = (amountOfDays) => {
 }
 
 export default async function Home() {
-  const res = await fetch(`http://${process.env.BASE_URL}/api/days-until-next-long-weekend`, { next: { revalidate: TIME_TO_REVALIDATE } });
+  const res = await fetch(`${process.env.VERCEL_URL}/api/days-until-next-long-weekend`, { next: { revalidate: TIME_TO_REVALIDATE } });
   const data = res.status === 200 ? await res.json() : null;
 
   return (
