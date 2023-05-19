@@ -1,4 +1,5 @@
 import { TIME_TO_REVALIDATE } from "./utils/constants";
+import { formatDateLongText } from "./utils/date";
 
 export default async function Home() {
   const res = await fetch('http://localhost:3000/api/days-until-next-long-weekend', { next: { revalidate: TIME_TO_REVALIDATE } });
@@ -10,7 +11,7 @@ export default async function Home() {
         data ?
           <>
             <h1>Faltan {data.daysUntilHoliday} días para el finde largo 😴</h1>
-            <p>{data.date}</p>
+            <p>{formatDateLongText(data.date)}</p>
             <p>{data.description}</p>
           </>
           :
