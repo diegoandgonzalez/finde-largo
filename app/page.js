@@ -1,5 +1,8 @@
-import { API_URL, TIME_TO_REVALIDATE } from "./utils/constants";
 import { formatDateLongText } from "./utils/date";
+import { 
+  API_URL, 
+  getData,
+} from "./utils/connection";
 
 const getDaysUntilText = (amountOfDays) => {
   if (amountOfDays === 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
@@ -8,8 +11,7 @@ const getDaysUntilText = (amountOfDays) => {
 }
 
 export default async function Home() {
-  const res = await fetch(`${API_URL}/api/days-until-next-long-weekend`, { next: { revalidate: TIME_TO_REVALIDATE } });
-  const data = res.status === 200 ? await res.json() : null;
+  const data = await getData(`${API_URL}/api/days-until-next-long-weekend`);
 
   return (
     <main>

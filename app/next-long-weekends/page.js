@@ -6,15 +6,11 @@ import {
 } from "../utils/date";
 import {
     API_URL,
-    TIME_TO_REVALIDATE,
-} from "../utils/constants";
+    getData,
+} from "../utils/connection";
 
 const NextLongWeekends = async () => {
-    const res = await fetch(
-        `${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(new Date())}`,
-        { next: { revalidate: TIME_TO_REVALIDATE } }
-    );
-    const { longWeekends } = await res.json();
+    const { longWeekends } = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(new Date())}`);
 
     return (
         <main>
