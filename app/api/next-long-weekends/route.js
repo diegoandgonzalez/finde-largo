@@ -14,7 +14,7 @@ export async function GET() {
     for (const holiday of holidaysAfterToday) {
         const newWeekend = {
             daysUntil: getDaysBetweenDates(new Date(), getDateObjectFromYYYYMMDD(holiday.date)),
-            weekend: [holiday],
+            holidays: [holiday],
         };
 
         if (!longWeekends[index]) {
@@ -22,14 +22,15 @@ export async function GET() {
             continue;
         }
 
-        const currentWeekend = longWeekends[index].weekend;
-        const lastWeekendHoliday = currentWeekend[currentWeekend.length - 1];
-        const daysBetweenHolidays = getDaysBetweenDates(getDateObjectFromYYYYMMDD(lastWeekendHoliday.date), getDateObjectFromYYYYMMDD(holiday.date));
+        const currentHolidays = longWeekends[index].holidays;
+        const lastCurrentHoliday = currentHolidays[currentHolidays.length - 1];
+        const daysBetweenHolidays = getDaysBetweenDates(getDateObjectFromYYYYMMDD(lastCurrentHoliday.date), getDateObjectFromYYYYMMDD(holiday.date));
+        
         if (daysBetweenHolidays > 3) {
             longWeekends.push(newWeekend);
             index++;
         } else {
-            currentWeekend.push(holiday);
+            currentHolidays.push(holiday);
         }
     }
 

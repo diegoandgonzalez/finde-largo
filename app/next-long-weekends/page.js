@@ -30,7 +30,7 @@ const NextLongWeekends = async () => {
                                 <ul>
                                     <p>{`En ${weekend.daysUntil} días`}</p>
                                     {
-                                        weekend.weekend.map((day, indexHoliday) => {
+                                        weekend.holidays.map((day, indexHoliday) => {
                                             return (
                                                 <div key={indexHoliday}>
                                                     <p>{formatDateLongText(getDateObjectFromYYYYMMDD(day.date))}</p>
