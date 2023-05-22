@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { formatDateLongText } from "./utils/date";
 import { 
   API_URL, 
@@ -21,6 +22,7 @@ export default async function Home() {
             <h1>{getDaysUntilText(data.daysUntilHoliday)}</h1>
             <p>{formatDateLongText(data.date)}</p>
             <p>{data.description}</p>
+            <Link href="/next-long-weekends">Ver próximos findes largos</Link>
           </>
           :
           <h1>Algo malió sal 🧂</h1>

@@ -18,6 +18,11 @@ b {
   color: var(--main);
 }
 
-h1, p {
+h1,
+p {
   color: var(--textColor);
+}
+
+a {
+  color: var(--main);
 }
