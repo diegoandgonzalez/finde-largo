@@ -8,14 +8,15 @@ import {
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
-    const dateToCompare = dayjs((searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date()).setHours(0, 0, 0, 0));
+    const dateToCompare = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
+    dateToCompare.setHours(0, 0, 0, 0);
     const holidaysAfterDate = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dateToCompare));
     const longWeekends = [];
     let index = 0;
 
     for (const holiday of holidaysAfterDate) {
         const newWeekend = {
-            daysUntil: getDaysBetweenDates(new Date(), getDateObjectFromYYYYMMDD(holiday.date)),
+            daysUntil: getDaysBetweenDates(dateToCompare, getDateObjectFromYYYYMMDD(holiday.date)),
             holidays: [holiday],
         };
 
