@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { formatDateLongText } from "./utils/date";
-import { 
-  API_URL, 
+import {
+  formatDateLongText,
+  formatDateToYYYYMMDD,
+} from "./utils/date";
+import {
+  API_URL,
   getData,
 } from "./utils/connection";
 
@@ -12,7 +15,7 @@ const getDaysUntilText = (amountOfDays) => {
 }
 
 export default async function Home() {
-  const data = await getData(`${API_URL}/api/days-until-next-long-weekend`);
+  const data = await getData(`${API_URL}/api/days-until-next-long-weekend?from=${formatDateToYYYYMMDD(new Date())}`);
 
   return (
     <main>

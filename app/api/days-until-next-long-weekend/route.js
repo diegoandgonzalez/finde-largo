@@ -5,14 +5,16 @@ import {
     getDaysBetweenDates,
     formatDateToYYYYMMDD,
 } from '@/app/utils/date';
+import dayjs from 'dayjs';
 
-export async function GET() {
+export async function GET(req) {
+    const { searchParams } = new URL(req.url);
+    const dateToCompare = dayjs((searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date()).setHours(0, 0, 0, 0));
+
     const nextHoliday = getHolidaysInWorkDays()
-        .find(item => {
-            const dateToCompare = getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0);
-            const today = (new Date()).setHours(0, 0, 0, 0);
-
-            return dateToCompare >= today;
+        .find((item) => {
+            const holidayDate = getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0);
+            return holidayDate >= dateToCompare;
         });
 
     if (!nextHoliday) {
