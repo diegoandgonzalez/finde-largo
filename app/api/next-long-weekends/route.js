@@ -6,12 +6,14 @@ import {
     getDaysBetweenDates,
 } from '@/app/utils/date';
 
-export async function GET() {
+export async function GET(req) {
+    const { searchParams } = new URL(req.url);
+    const dateToCompare = dayjs((searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date()).setHours(0, 0, 0, 0));
+    const holidaysAfterDate = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dateToCompare));
     const longWeekends = [];
-    const holidaysAfterToday = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dayjs(new Date())));
     let index = 0;
 
-    for (const holiday of holidaysAfterToday) {
+    for (const holiday of holidaysAfterDate) {
         const newWeekend = {
             daysUntil: getDaysBetweenDates(new Date(), getDateObjectFromYYYYMMDD(holiday.date)),
             holidays: [holiday],
@@ -25,7 +27,7 @@ export async function GET() {
         const currentHolidays = longWeekends[index].holidays;
         const lastCurrentHoliday = currentHolidays[currentHolidays.length - 1];
         const daysBetweenHolidays = getDaysBetweenDates(getDateObjectFromYYYYMMDD(lastCurrentHoliday.date), getDateObjectFromYYYYMMDD(holiday.date));
-        
+
         if (daysBetweenHolidays > 3) {
             longWeekends.push(newWeekend);
             index++;
