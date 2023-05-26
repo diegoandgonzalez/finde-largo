@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+    getTodayObject,
     getDateObjectFromYYYYMMDD,
     formatDateLongText,
     formatDateToYYYYMMDD,
@@ -10,7 +11,7 @@ import {
 } from "../utils/connection";
 
 const NextLongWeekends = async () => {
-    const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(new Date())}`);
+    const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
     return (
         <main>

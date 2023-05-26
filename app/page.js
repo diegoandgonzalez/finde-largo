@@ -1,5 +1,6 @@
 import Link from "next/link";
 import {
+  getTodayObject,
   formatDateLongText,
   formatDateToYYYYMMDD,
 } from "./utils/date";
@@ -15,7 +16,7 @@ const getDaysUntilText = (amountOfDays) => {
 }
 
 export default async function Home() {
-  const data = await getData(`${API_URL}/api/days-until-next-long-weekend?from=${formatDateToYYYYMMDD(new Date())}`);
+  const data = await getData(`${API_URL}/api/days-until-next-long-weekend?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
   return (
     <main>

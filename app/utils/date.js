@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 
+export const getTodayObject = () => new Date(new Date().toLocaleString("en-US", { timeZone: 'America/Argentina/Buenos_Aires' }));
 export const getDateObjectFromYYYYMMDD = (dateString) => dayjs(dateString).toDate();
 export const getDaysBetweenDates = (date1, date2) => Math.round(Math.abs(dayjs(date1.setHours(0,0,0,0)).diff(dayjs(date2.setHours(0,0,0,0)), 'day')));
 
