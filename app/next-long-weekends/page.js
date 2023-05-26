@@ -10,7 +10,7 @@ import {
 } from "../utils/connection";
 
 const NextLongWeekends = async () => {
-    const { longWeekends } = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(new Date())}`);
+    const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(new Date())}`);
 
     return (
         <main>
@@ -20,7 +20,7 @@ const NextLongWeekends = async () => {
             </header>
             <ul>
                 {
-                    longWeekends.map((weekend, indexWeekend) => {
+                    data?.longWeekends?.map((weekend, indexWeekend) => {
                         return (
                             <li key={indexWeekend}>
                                 <ul>
