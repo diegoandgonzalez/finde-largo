@@ -1,8 +1,12 @@
 import dayjs from 'dayjs';
 
-export const getTodayObject = () => new Date(new Date().toLocaleString("en-US", { timeZone: 'America/Argentina/Buenos_Aires' }));
+export const getTodayObject = () => {
+    const today = new Date(new Date().toLocaleString("en-US", { timeZone: 'America/Argentina/Buenos_Aires' }));
+    today.setHours(0, 0, 0, 0);
+    return today;
+}
 export const getDateObjectFromYYYYMMDD = (dateString) => dayjs(dateString).toDate();
-export const getDaysBetweenDates = (date1, date2) => Math.round(Math.abs(dayjs(date1.setHours(0,0,0,0)).diff(dayjs(date2.setHours(0,0,0,0)), 'day')));
+export const getDaysBetweenDates = (date1, date2) => Math.round(Math.abs(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), 'day')));
 
 export const formatDateToYYYYMMDD = (date) => dayjs(date).format('YYYY/MM/DD');
 export const formatDateLongText = (date) => {
