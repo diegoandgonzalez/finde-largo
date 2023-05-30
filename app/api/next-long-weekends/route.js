@@ -4,19 +4,24 @@ import { getHolidaysInWorkDays } from '../getter';
 import {
     getDateObjectFromYYYYMMDD,
     getDaysBetweenDates,
+    getDaysUntilLongWeekend,
 } from '@/app/utils/date';
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
-    const dateToCompare = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
-    dateToCompare.setHours(0, 0, 0, 0);
-    const holidaysAfterDate = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dateToCompare));
+    const dateFrom = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
+    dateFrom.setHours(0, 0, 0, 0);
+
+    const holidaysAfterDate = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dateFrom));
     const longWeekends = [];
     let index = 0;
 
     for (const holiday of holidaysAfterDate) {
+        const holidayDate = getDateObjectFromYYYYMMDD(holiday.date);
+        holidayDate.setHours(0, 0, 0, 0);
+
         const newWeekend = {
-            daysUntil: getDaysBetweenDates(dateToCompare, getDateObjectFromYYYYMMDD(holiday.date)),
+            daysUntil: getDaysUntilLongWeekend(dateFrom, holidayDate),
             holidays: [holiday],
         };
 
@@ -27,7 +32,7 @@ export async function GET(req) {
 
         const currentHolidays = longWeekends[index].holidays;
         const lastCurrentHoliday = currentHolidays[currentHolidays.length - 1];
-        const daysBetweenHolidays = getDaysBetweenDates(getDateObjectFromYYYYMMDD(lastCurrentHoliday.date), getDateObjectFromYYYYMMDD(holiday.date));
+        const daysBetweenHolidays = getDaysBetweenDates(holidayDate, getDateObjectFromYYYYMMDD(lastCurrentHoliday.date));
 
         if (daysBetweenHolidays > 3) {
             longWeekends.push(newWeekend);

@@ -2,34 +2,33 @@ import { NextResponse } from 'next/server';
 import { getHolidaysInWorkDays } from '../getter';
 import {
     getDateObjectFromYYYYMMDD,
-    getDaysBetweenDates,
+    getDaysUntilLongWeekend,
     formatDateToYYYYMMDD,
+    isDateOnDay,
+    isDateInLongWeekendRange,
 } from '@/app/utils/date';
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
-    const dateToCompare = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
-    dateToCompare.setHours(0, 0, 0, 0);
+    const dateFrom = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
+    dateFrom.setHours(0, 0, 0, 0);
 
-    const nextHoliday = getHolidaysInWorkDays()
+    const holiday = getHolidaysInWorkDays()
         .find((item) => {
-            const holidayDate = getDateObjectFromYYYYMMDD(item.date).setHours(0, 0, 0, 0);
-            return holidayDate >= dateToCompare;
+            const holidayDate = getDateObjectFromYYYYMMDD(item.date);
+            holidayDate.setHours(0, 0, 0, 0);
+
+            if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) return true;
+            return holidayDate >= dateFrom;
         });
 
-    if (!nextHoliday) {
-        return new Response(
-            'Next holiday not found',
-            {
-                status: 404,
-            });
+    if (!holiday) {
+        return new Response('Holiday not found', { status: 404 });
     }
 
-    const daysUntilHoliday = getDaysBetweenDates(dateToCompare, getDateObjectFromYYYYMMDD(nextHoliday?.date));
-
     return NextResponse.json({
-        daysUntilHoliday,
-        date: formatDateToYYYYMMDD(nextHoliday.date),
-        description: nextHoliday.description,
+        daysUntilLongWeekend: getDaysUntilLongWeekend(dateFrom, getDateObjectFromYYYYMMDD(holiday.date)),
+        date: formatDateToYYYYMMDD(holiday.date),
+        description: holiday.description,
     });
 }

@@ -10,7 +10,7 @@ import {
 } from "./utils/connection";
 
 const getDaysUntilText = (amountOfDays) => {
-  if (amountOfDays === 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
+  if (amountOfDays <= 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
   if (amountOfDays <= 7) return <>El <b>finde largo</b> arranca en <b>{amountOfDays}</b> días 🥵</>;
   return <>Faltan <b>{amountOfDays}</b> días para el <b>finde largo</b>😴</>;
 }
@@ -23,7 +23,7 @@ export default async function Home() {
       {
         data ?
           <>
-            <h1>{getDaysUntilText(data.daysUntilHoliday)}</h1>
+            <h1>{getDaysUntilText(data.daysUntilLongWeekend)}</h1>
             <p>{formatDateLongText(data.date)}</p>
             <p>{data.description}</p>
             <Link href="/next-long-weekends">Ver próximos findes largos</Link>
