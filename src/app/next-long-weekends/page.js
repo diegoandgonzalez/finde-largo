@@ -4,11 +4,11 @@ import {
     getDateObjectFromYYYYMMDD,
     formatDateLongText,
     formatDateToYYYYMMDD,
-} from "../../utils/date";
+} from "@/utils/date";
 import {
     API_URL,
     getData,
-} from "../../utils/connection";
+} from "@/utils/connection";
 
 const NextLongWeekends = async () => {
     const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(getTodayObject())}`);

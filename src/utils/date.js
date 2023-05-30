@@ -1,12 +1,12 @@
-import dayjs from 'dayjs';
+import dayjs from "dayjs";
 
 export const getTodayObject = () => {
-    const today = new Date(new Date().toLocaleString("en-US", { timeZone: 'America/Argentina/Buenos_Aires' }));
+    const today = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" }));
     today.setHours(0, 0, 0, 0);
     return today;
 }
 export const getDateObjectFromYYYYMMDD = (dateString) => dayjs(dateString).toDate();
-export const getDaysBetweenDates = (date1, date2) => Math.round(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), 'day'));
+export const getDaysBetweenDates = (date1, date2) => Math.round(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), "day"));
 export const getLastSaturday = (date) => {
     let saturday = new Date(date);
     saturday.setDate(saturday.getDate() - (saturday.getDay() + 1));
@@ -27,9 +27,9 @@ export const getDaysUntilLongWeekend = (dateFrom, holidayDate) => {
     return getDaysBetweenDates(previousSatuday, dateFrom);
 }
 
-export const formatDateToYYYYMMDD = (date) => dayjs(date).format('YYYY/MM/DD');
+export const formatDateToYYYYMMDD = (date) => dayjs(date).format("YYYY/MM/DD");
 export const formatDateLongText = (date) => {
-    const formattedDate = dayjs(date).format('dddd, LL');
+    const formattedDate = dayjs(date).format("dddd, LL");
     return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 

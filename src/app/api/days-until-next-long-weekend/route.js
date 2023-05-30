@@ -1,16 +1,16 @@
-import { NextResponse } from 'next/server';
-import { getHolidaysInWorkDays } from '../getter';
+import { NextResponse } from "next/server";
+import { getHolidaysInWorkDays } from "../getter";
 import {
     getDateObjectFromYYYYMMDD,
     getDaysUntilLongWeekend,
     formatDateToYYYYMMDD,
     isDateOnDay,
     isDateInLongWeekendRange,
-} from '../../../utils/date';
+} from "@/utils/date";
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
-    const dateFrom = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
+    const dateFrom = searchParams.get("from") ? getDateObjectFromYYYYMMDD(searchParams.get("from")) : new Date();
     dateFrom.setHours(0, 0, 0, 0);
 
     const holiday = getHolidaysInWorkDays()
@@ -23,7 +23,7 @@ export async function GET(req) {
         });
 
     if (!holiday) {
-        return new Response('Holiday not found', { status: 404 });
+        return new Response("Holiday not found", { status: 404 });
     }
 
     return NextResponse.json({
