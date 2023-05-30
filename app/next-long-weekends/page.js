@@ -14,10 +14,10 @@ const NextLongWeekends = async () => {
     const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
     return (
-        <main>
-            <header>
-                <h1>Próximos findes largos</h1>
-                <Link href="/">Volver</Link>
+        <main className="container my-0 mx-auto px-4 text-center">
+            <header className="md:sticky top-0 p-6">
+                <h1 className="text-4xl font-semibold">Próximos <b>findes largos</b></h1>
+                <Link className="text-xl inline-block mt-3 underline" href="/">Volver</Link>
             </header>
             <ul>
                 {
@@ -25,13 +25,13 @@ const NextLongWeekends = async () => {
                         return (
                             <li key={indexWeekend}>
                                 <ul>
-                                    <p>{`En ${weekend.daysUntil} días`}</p>
+                                    <p className="text-2xl"><b>{`En ${weekend.daysUntil} días`}</b></p>
                                     {
                                         weekend.holidays.map((day, indexHoliday) => {
                                             return (
-                                                <div key={indexHoliday}>
-                                                    <p>{formatDateLongText(getDateObjectFromYYYYMMDD(day.date))}</p>
-                                                    <p>{day.description}</p>
+                                                <div key={indexHoliday} className="m-2">
+                                                    <p className="text-xl">{formatDateLongText(getDateObjectFromYYYYMMDD(day.date))}:</p>
+                                                    <p className="text-lg italic">{day.description}</p>
                                                 </div>
                                             )
                                         })
