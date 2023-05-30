@@ -5,7 +5,7 @@ import {
     getDateObjectFromYYYYMMDD,
     getDaysBetweenDates,
     getDaysUntilLongWeekend,
-} from '@/app/utils/date';
+} from '../../../utils/date';
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);

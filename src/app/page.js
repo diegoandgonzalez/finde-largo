@@ -3,11 +3,11 @@ import {
   getTodayObject,
   formatDateLongText,
   formatDateToYYYYMMDD,
-} from "./utils/date";
+} from "../utils/date";
 import {
   API_URL,
   getData,
-} from "./utils/connection";
+} from "../utils/connection";
 
 const getDaysUntilText = (amountOfDays) => {
   if (amountOfDays <= 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
