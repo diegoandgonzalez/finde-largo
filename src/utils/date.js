@@ -13,18 +13,9 @@ export const getLastSaturday = (date) => {
     return saturday;
 }
 export const getDaysUntilLongWeekend = (dateFrom, holidayDate) => {
-    if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) {
-        return 0;
-    }
-
-    // si el feriado es JUE o VIE, contar los dias hasta el feriado
-    if (isDateOnDay(holidayDate, [4, 5])) {
-        return getDaysBetweenDates(holidayDate, dateFrom);
-    }
-
-    // si el feriado es posterior a SAB o DOM, contar los dias hasta el SAB
-    const previousSatuday = getLastSaturday(holidayDate, 6);
-    return getDaysBetweenDates(previousSatuday, dateFrom);
+    if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) return 0;
+    if (isDateOnDay(holidayDate, [4, 5])) return getDaysBetweenDates(holidayDate, dateFrom);
+    return getDaysBetweenDates(getLastSaturday(holidayDate), dateFrom);
 }
 
 export const formatDateToYYYYMMDD = (date) => dayjs(date).format("YYYY/MM/DD");
@@ -38,15 +29,9 @@ export const isDateOnDay = (date, dayIndexArr) => {
     return dayIndexArr.some((dayIndex) => dayIndex === dayOfWeek);
 }
 export const isDateInLongWeekendRange = (weekendDate, dateToCheck) => {
-    // es finde largo pero dateToCheck ya paso (cae jueves o viernes)
-    if (dateToCheck < weekendDate && Math.abs(getDaysBetweenDates(dateToCheck, weekendDate)) < 4) {
-        return true;
-    }
-
-    // es finde largo pero dateToCheck todavia no llegó
-    if (dateToCheck > weekendDate && Math.abs(getDaysBetweenDates(dateToCheck, weekendDate)) < 3) {
-        return true;
-    }
-
+    // si es finde largo pero dateToCheck ya paso (cae jueves o viernes)
+    // si es finde largo pero dateToCheck llega en menos de 3 días
+    if (dateToCheck < weekendDate && Math.abs(getDaysBetweenDates(dateToCheck, weekendDate)) < 4) return true;
+    if (dateToCheck > weekendDate && Math.abs(getDaysBetweenDates(dateToCheck, weekendDate)) < 3) return true;
     return false;
 }
