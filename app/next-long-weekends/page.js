@@ -16,10 +16,10 @@ const NextLongWeekends = async () => {
     return (
         <main className="container my-0 mx-auto px-4 text-center">
             <header className="md:sticky top-0 p-6">
-                <h1 className="text-4xl font-semibold">Próximos <b>findes largos</b></h1>
+                <h1 className="text-3xl md:text-4xl font-semibold">Próximos <b>findes largos</b></h1>
                 <Link className="text-xl inline-block mt-3 underline" href="/">Volver</Link>
             </header>
-            <ul>
+            <ul className="mt-2">
                 {
                     data?.longWeekends?.map((weekend, indexWeekend) => {
                         return (

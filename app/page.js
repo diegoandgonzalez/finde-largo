@@ -23,15 +23,15 @@ export default async function Home() {
       {
         data ?
           <>
-            <h1 className="text-5xl font-semibold">{getDaysUntilText(data.daysUntilLongWeekend)}</h1>
-            <div className="m-6">
-              <p className="text-4xl">{formatDateLongText(data.date)}:</p>
-              <p className="text-3xl mt-2 italic">{data.description}</p>
+            <h1 className="text-3xl md:text-5xl font-semibold">{getDaysUntilText(data.daysUntilLongWeekend)}</h1>
+            <div className="m-3 md:m-6">
+              <p className="text-2xl md:text-4xl">{formatDateLongText(data.date)}:</p>
+              <p className="text-xl md:text-3xl mt-2 italic">{data.description}</p>
             </div>
-            <Link className="text-3xl underline" href="/next-long-weekends">Ver próximos findes largos</Link>
+            <Link className="text-xl md:text-3xl underline" href="/next-long-weekends">Ver próximos findes largos</Link>
           </>
           :
-          <h1 className="text-6xl">Algo <b>malió sal</b> 🧂</h1>
+          <h1 className="text-3xl md:text-5xl">Algo <b>malió sal</b> 🧂</h1>
       }
     </main>
   )
