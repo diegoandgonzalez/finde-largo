@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --main: #d64252;
+  --main: #d63444;
   --background: #201e23;
   --textColor: white;
 }
@@ -14,7 +14,8 @@
   margin: 0;
 }
 
-body {
+body,
+header {
   background-color: var(--background);
 }
 
