@@ -19,7 +19,7 @@ export default async function Home() {
   const data = await getData(`${API_URL}/api/days-until-next-long-weekend?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
   return (
-    <main className="w-4/5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+    <main className="container p-4 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
       {
         data ?
           <>
