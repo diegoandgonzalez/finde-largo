@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
 import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
 import locale_es from "dayjs/locale/es";
+import localizedFormat from "dayjs/plugin/localizedFormat";
+import { Inter } from "next/font/google";
 dayjs.extend(localizedFormat)
 dayjs.locale(locale_es);
 

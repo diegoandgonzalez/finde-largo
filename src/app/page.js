@@ -1,13 +1,13 @@
-import Link from "next/link";
-import {
-  getTodayObject,
-  formatDateLongText,
-  formatDateToYYYYMMDD,
-} from "@/utils/date";
 import {
   API_URL,
   getData,
 } from "@/utils/connection";
+import {
+  formatDateLongText,
+  formatDateToYYYYMMDD,
+  getTodayObject
+} from "@/utils/date";
+import Link from "next/link";
 
 const getDaysUntilText = (amountOfDays) => {
   if (amountOfDays <= 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;

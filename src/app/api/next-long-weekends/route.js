@@ -1,11 +1,11 @@
-import dayjs from "dayjs";
-import { NextResponse } from "next/server";
-import { getHolidaysInWorkDays } from "../getter";
 import {
     getDateObjectFromYYYYMMDD,
     getDaysBetweenDates,
     getDaysUntilLongWeekend,
 } from "@/utils/date";
+import dayjs from "dayjs";
+import { NextResponse } from "next/server";
+import { getHolidaysInWorkDays } from "../getter";
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);

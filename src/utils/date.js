@@ -29,6 +29,8 @@ export const isDateOnDay = (date, dayIndexArr) => {
     return dayIndexArr.some((dayIndex) => dayIndex === dayOfWeek);
 }
 export const isDateInLongWeekendRange = (weekendDate, dateToCheck) => {
+    // preguntar si weekendDate es domingo o sabado, segun cual sea, determinar cuantos dias restar y cuantos sumar, y usar isBetween
+
     // si es finde largo pero dateToCheck ya paso (cae jueves o viernes)
     // si es finde largo pero dateToCheck llega en menos de 3 días
     if (dateToCheck < weekendDate && Math.abs(getDaysBetweenDates(dateToCheck, weekendDate)) < 4) return true;

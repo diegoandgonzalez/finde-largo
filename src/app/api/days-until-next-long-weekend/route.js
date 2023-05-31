@@ -1,12 +1,12 @@
-import { NextResponse } from "next/server";
-import { getHolidaysInWorkDays } from "../getter";
 import {
+    formatDateToYYYYMMDD,
     getDateObjectFromYYYYMMDD,
     getDaysUntilLongWeekend,
-    formatDateToYYYYMMDD,
-    isDateOnDay,
     isDateInLongWeekendRange,
+    isDateOnDay,
 } from "@/utils/date";
+import { NextResponse } from "next/server";
+import { getHolidaysInWorkDays } from "../getter";
 
 export async function GET(req) {
     const { searchParams } = new URL(req.url);
