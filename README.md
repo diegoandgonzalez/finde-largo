@@ -18,7 +18,7 @@ Website that tells you when the next argentinean **long weekend** occurs.
 - Tailwind CSS
 
 ## Features
-- Check amount of days until the next long weekend (with a different message if you're on it now)
+- Check amount of days until the next long weekend (with a different message if the long weekend has already started)
 - Check every upcoming long weekend for the rest of the year
 - Check every holiday related to each long weekend
 
@@ -34,9 +34,9 @@ npm install
 
 ### 2. Add environment variables
 
-Create `.env.local` file in the root folder of the project.
+Create `.env.local` file in the project's root folder.
 This file contains the environment variables that are injected by Next.js.
-It should contain the following:
+It should include the following:
 
 ```javascript
 NEXT_PUBLIC_VERCEL_URL=localhost:3000
@@ -49,7 +49,7 @@ NEXT_PUBLIC_VERCEL_ENV=development
 > When deployed to Vercel, it'll be replaced to **production**
 
 
-### 3. Run Development Server
+### 3. Run development server
 
 Finally, run the development server:
 
