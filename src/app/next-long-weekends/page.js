@@ -10,6 +10,12 @@ import {
 } from "@/utils/date";
 import Link from "next/link";
 
+export const metadata = {
+    title: {
+        absolute: 'Próximos findes largos',
+    },
+};
+
 const NextLongWeekends = async () => {
     const data = await getData(`${API_URL}/api/next-long-weekends?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
