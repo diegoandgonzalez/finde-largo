@@ -17,7 +17,7 @@ const getDaysUntilText = (amountOfDays) => {
   return <>Faltan <b>{amountOfDays}</b> días para el <b>finde largo</b> 😴</>;
 }
 
-export default async function Home() {
+const Home = async () => {
   const data = await getData(`${API_URL}/api/days-until-next-long-weekend?from=${formatDateToYYYYMMDD(getTodayObject())}`);
 
   return (
@@ -53,3 +53,5 @@ export default async function Home() {
     </main>
   )
 }
+
+export default Home;
