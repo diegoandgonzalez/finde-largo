@@ -1,5 +1,5 @@
 const Counter = ({ amount, small }) => {
-    const getText = (small, amount) => {
+    const getText = () => {
         if (small) return <b>En {amount} días</b>;
         if (amount <= 0) return <>Ya arrancó el <b>finde largo</b> 🥳</>;
         if (amount <= 7) return <>El <b>finde largo</b> arranca en <b>{amount}</b> días 🥵</>;
@@ -8,7 +8,7 @@ const Counter = ({ amount, small }) => {
 
     return (
         <p className={small ? "text-2xl" : "text-3xl md:text-5xl font-semibold"}>
-            {getText(amount)}
+            {getText()}
         </p>
     )
 }
