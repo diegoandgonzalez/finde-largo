@@ -3,7 +3,7 @@ const API_URL_PROTOCOL_SCHEME = process.env.NEXT_PUBLIC_VERCEL_ENV === "developm
 
 export const API_URL = API_URL_PROTOCOL_SCHEME + process.env.NEXT_PUBLIC_VERCEL_URL;
 
-export const getData = async (url, timeToRevalidate = DEFAULT_TIME_TO_REVALIDATE) => {
+export const getData = async (url: string, timeToRevalidate = DEFAULT_TIME_TO_REVALIDATE) => {
     return await fetch(url, { next: { revalidate: timeToRevalidate } })
         .then((response) => response.json())
         .then((json) => json)
