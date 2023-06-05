@@ -7,16 +7,10 @@ const ThemeChanger = () => {
     const isMounted = useIsMounted();
 
     const toggleTheme = () => {
-        switch (resolvedTheme) {
-            case "dark": {
-                setTheme("light");
-                break;
-            }
-            case "light": {
-                setTheme("dark");
-                break;
-            }
-            default: break;
+        if (resolvedTheme === "dark") {
+            setTheme("light");
+        } else {
+            setTheme("dark");
         }
     }
 
