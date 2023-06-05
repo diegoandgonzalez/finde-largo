@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 
-const useIsMounted = () => {
+const useIsMounted = (): Boolean => {
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
