@@ -21,6 +21,7 @@ Website that tells you when the next argentinean **long weekend** occurs.
 - Check amount of days until the next long weekend (with a different message if the long weekend has already started)
 - Check every upcoming long weekend for the rest of the year
 - Check every holiday related to each long weekend
+- Dark/light mode
 
 ## Getting Started
 
