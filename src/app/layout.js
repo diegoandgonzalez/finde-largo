@@ -1,6 +1,8 @@
 import Provider from "@/components/provider";
 import ThemeChanger from "@/components/themeChanger";
 import "@/styles/globals.css";
+import { Space_Grotesk } from "next/font/google";
+const font = Space_Grotesk({ subsets: ['latin'] })
 
 export const metadata = {
   title: "Cuánto para el finde largo",
@@ -9,7 +11,7 @@ export const metadata = {
 
 const RootLayout = ({ children }) => {
   return (
-    <html lang="en">
+    <html lang="en" className={font.className}>
       <body className="bg-customGray dark:bg-customDarkPurple">
         <Provider>
           {children}
