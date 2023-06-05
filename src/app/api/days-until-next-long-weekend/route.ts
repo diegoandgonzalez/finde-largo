@@ -1,14 +1,13 @@
 import {
-    formatDateToYYYYMMDD,
     getDateObjectFromYYYYMMDD,
     getDaysUntilLongWeekend,
     isDateInLongWeekendRange,
-    isDateOnDay,
+    isDateOnDay
 } from "@/utils/date";
 import { NextResponse } from "next/server";
 import { getHolidaysInWorkDays } from "../getter";
 
-export async function GET(req) {
+export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const dateFrom = searchParams.get("from") ? getDateObjectFromYYYYMMDD(searchParams.get("from")) : new Date();
     dateFrom.setHours(0, 0, 0, 0);
@@ -28,7 +27,7 @@ export async function GET(req) {
 
     return NextResponse.json({
         daysUntilLongWeekend: getDaysUntilLongWeekend(dateFrom, getDateObjectFromYYYYMMDD(holiday.date)),
-        date: formatDateToYYYYMMDD(holiday.date),
+        date: holiday.date,
         description: holiday.description,
     });
 }

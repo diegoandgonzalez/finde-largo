@@ -8,6 +8,11 @@ export type HolidayType = {
     description: string,
 }
 
+export type WeekendSerializableType = {
+    daysUntil: number,
+    holidays: HolidaySerializableType[],
+}
+
 export type WeekendType = {
     daysUntil: number,
     holidays: HolidayType[],
