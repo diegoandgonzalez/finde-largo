@@ -7,7 +7,7 @@ type HolidayType = {
 }
 
 type Props = {
-    small: boolean,
+    small?: boolean,
     holidays: HolidayType[],
     daysUntilLongWeekend: number,
 }
