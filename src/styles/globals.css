@@ -1,33 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --main: #d63444;
-  --background: #201e23;
-  --textColor: white;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body,
-header {
-  background-color: var(--background);
-}
-
-b {
-  color: var(--main);
-}
-
-h1,
-p {
-  color: var(--textColor);
-}
-
-a {
-  color: var(--main);
-}

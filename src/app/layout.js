@@ -1,7 +1,6 @@
+import Provider from "@/components/provider";
+import ThemeChanger from "@/components/themeChanger";
 import "@/styles/globals.css";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: "Cuánto para el finde largo",
@@ -11,8 +10,11 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body className="bg-customGray dark:bg-customDarkPurple">
+        <Provider>
+          {children}
+          <ThemeChanger />
+        </Provider>
       </body>
     </html>
   )

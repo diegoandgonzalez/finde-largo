@@ -1,3 +1,4 @@
+import Accent from "@/components/accent";
 import LongWeekend from "@/components/longWeekend";
 import {
     API_URL,
@@ -20,10 +21,10 @@ const NextLongWeekends = async () => {
 
     return (
         <main className="text-center">
-            <header className="md:sticky top-0 p-4 shadow-lg">
+            <header className="md:sticky top-0 p-4 shadow-lg bg-customGray dark:bg-customDarkPurple">
                 <Link href="/">
-                    <h1 className="text-2xl md:text-3xl font-semibold">
-                        Próximos <b>findes largos</b>
+                    <h1 className="text-2xl md:text-3xl font-semibold inline">
+                        {<>Próximos <Accent>findes largos</Accent></>}
                     </h1>
                 </Link>
             </header>
@@ -32,7 +33,7 @@ const NextLongWeekends = async () => {
                     data?.longWeekends?.map((weekend, indexWeekend) => {
                         return (
                             <li key={indexWeekend}>
-                                <div className="w-full md:w-3/4 lg:w-1/2 my-0 mx-auto bg-black bg-opacity-20 p-5 rounded-3xl">
+                                <div className="w-full md:w-3/4 lg:w-1/2 my-0 mx-auto bg-black bg-opacity-5 dark:bg-opacity-20 p-5 rounded-3xl">
                                     <LongWeekend
                                         daysUntilLongWeekend={weekend.daysUntil}
                                         holidays={weekend.holidays}

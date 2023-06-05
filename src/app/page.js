@@ -24,8 +24,8 @@ const Home = async () => {
                 daysUntilLongWeekend={data.daysUntilLongWeekend}
                 holidays={[{ date: data.date, description: data.description }]}
               />
-              <Link className="text-xl md:text-3xl underline" href="/next-long-weekends">
-                Ver próximos findes largos
+              <Link className="text-customMain text-xl md:text-3xl underline" href="/next-long-weekends">
+                {"Ver próximos findes largos"}
               </Link>
             </>
             :
