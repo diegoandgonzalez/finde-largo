@@ -6,41 +6,47 @@ dayjs.extend(isBetween);
 dayjs.extend(localizedFormat)
 dayjs.locale(locale_es);
 
-export const getTodayObject = () => {
+export const getTodayObject = (): Date => {
     const today = new Date(new Date().toLocaleString("en-US", { timeZone: "America/Argentina/Buenos_Aires" }));
     today.setHours(0, 0, 0, 0);
     return today;
 }
 
-export const getDateObjectFromYYYYMMDD = (dateString) => dayjs(dateString).toDate();
+export const getDateObjectFromYYYYMMDD = (dateString: string): Date => {
+    return dayjs(dateString).toDate();
+}
 
-export const getDaysBetweenDates = (date1, date2) => Math.round(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), "day"));
+export const getDaysBetweenDates = (date1: Date, date2: Date): Number => {
+    return Math.round(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), "day"));
+}
 
-export const getLastSaturday = (date) => {
+export const getLastSaturday = (date: Date): Date => {
     let saturday = new Date(date);
     saturday.setDate(saturday.getDate() - (saturday.getDay() + 1));
     return saturday;
 }
 
-export const getDaysUntilLongWeekend = (dateFrom, holidayDate) => {
+export const getDaysUntilLongWeekend = (dateFrom: Date, holidayDate: Date): Number => {
     if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) return 0;
     if (isDateOnDay(holidayDate, [4, 5])) return getDaysBetweenDates(holidayDate, dateFrom);
     return getDaysBetweenDates(getLastSaturday(holidayDate), dateFrom);
 }
 
-export const formatDateToYYYYMMDD = (date) => dayjs(date).format("YYYY/MM/DD");
+export const formatDateToYYYYMMDD = (date: Date): string => {
+    return dayjs(date).format("YYYY/MM/DD");
+}
 
-export const formatDateLongText = (date) => {
+export const formatDateLongText = (date: Date): string => {
     const formattedDate = dayjs(date).format("dddd, LL");
     return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 }
 
-export const isDateOnDay = (date, dayIndexArr) => {
+export const isDateOnDay = (date: Date, dayIndexArr: number[]): boolean => {
     const dayOfWeek = date.getDay();
     return dayIndexArr.some((dayIndex) => dayIndex === dayOfWeek);
 }
 
-export const isDateInLongWeekendRange = (weekendDate, dateToCheck) => {
+export const isDateInLongWeekendRange = (weekendDate: Date, dateToCheck: Date): boolean => {
     const weekendDateIsSaturday = isDateOnDay(weekendDate, [6]);
     const dateTo = dayjs(weekendDate).add(weekendDateIsSaturday ? 3 : 4, 'day');
     const dateFrom = dayjs(weekendDate).subtract(weekendDateIsSaturday ? 4 : 3, 'day');
