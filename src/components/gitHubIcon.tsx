@@ -4,7 +4,11 @@ import Image from "next/image";
 import githubDark from "public/github-mark-white.png";
 import githubLight from "public/github-mark.png";
 
-const GitHubIcon = ({ height }) => {
+type Props = {
+    height: number,
+}
+
+const GitHubIcon = ({ height }: Props): React.ReactNode => {
     const { resolvedTheme } = useTheme();
 
     return (

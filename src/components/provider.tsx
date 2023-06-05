@@ -2,7 +2,11 @@
 import useIsMounted from "@/hooks/useIsMounted";
 import { ThemeProvider } from "next-themes";
 
-const Provider = ({ children }) => {
+type Props = {
+    children: React.ReactNode;
+};
+
+const Provider = ({ children }: Props): React.ReactNode => {
     const isMounted = useIsMounted();
 
     if (!isMounted) {

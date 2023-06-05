@@ -1,7 +1,6 @@
 import GitHubIcon from "./gitHubIcon";
 
-const Footer = () => {
-
+const Footer = (): React.ReactNode => {
     return (
         <footer className="fixed bottom-0 w-full">
             <div className="flex justify-center m-4">

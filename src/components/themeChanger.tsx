@@ -2,7 +2,7 @@
 import useIsMounted from "@/hooks/useIsMounted";
 import { useTheme } from "next-themes";
 
-const ThemeChanger = () => {
+const ThemeChanger = (): React.ReactNode => {
     const { resolvedTheme, setTheme } = useTheme();
     const isMounted = useIsMounted();
 

@@ -1,6 +1,11 @@
 import Accent from "./accent";
 
-const Counter = ({ amount, small }) => {
+type Props = {
+    amount: number,
+    small: boolean,
+};
+
+const Counter = ({ amount, small }: Props): React.ReactNode => {
     const getText = () => {
         if (small) return <Accent>En {amount} días</Accent>;
         if (amount <= 0) return <>Ya arrancó el <Accent>finde largo</Accent> 🥳</>;

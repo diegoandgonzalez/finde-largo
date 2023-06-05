@@ -1,7 +1,18 @@
 import Counter from "@/components/counter";
 import Holiday from "@/components/holiday";
 
-const LongWeekend = ({ small, holidays, daysUntilLongWeekend }) => {
+type HolidayType = {
+    date: Date,
+    description: string,
+}
+
+type Props = {
+    small: boolean,
+    holidays: HolidayType[],
+    daysUntilLongWeekend: number,
+}
+
+const LongWeekend = ({ small, holidays, daysUntilLongWeekend }: Props): React.ReactNode => {
     return (
         <>
             <Counter
@@ -9,7 +20,7 @@ const LongWeekend = ({ small, holidays, daysUntilLongWeekend }) => {
                 small={small}
             />
             {
-                holidays?.map((holiday, index) => {
+                holidays?.map((holiday: HolidayType, index: number) => {
                     return (
                         <div key={index} className={small ? "m-2" : "m-3 md:m-6"}>
                             <Holiday

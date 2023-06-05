@@ -2,8 +2,13 @@ import {
     formatDateLongText,
 } from "@/utils/date";
 
-const Holiday = ({ date, description, small }) => {
+type Props = {
+    date: Date,
+    description: string,
+    small: boolean,
+}
 
+const Holiday = ({ date, description, small }: Props): React.ReactNode => {
     return (
         <>
             <p className={small ? "text-xl" : "text-2xl md:text-4xl"}>{formatDateLongText(date)}:</p>
