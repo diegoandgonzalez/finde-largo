@@ -1,10 +1,9 @@
 import {
     formatDateLongText,
 } from "@/utils/date";
+import { HolidayType } from "@/utils/types";
 
-type Props = {
-    date: Date,
-    description: string,
+type Props = HolidayType & {
     small: boolean,
 }
 
