@@ -1,10 +1,6 @@
 import Counter from "@/components/counter";
 import Holiday from "@/components/holiday";
-
-type HolidayType = {
-    date: Date,
-    description: string,
-}
+import { HolidayType } from "@/utils/types";
 
 type Props = {
     small?: boolean,

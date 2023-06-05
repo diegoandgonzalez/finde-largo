@@ -9,7 +9,11 @@ export const metadata = {
   description: "Averiguá cuánto falta para el finde largo",
 }
 
-const RootLayout = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const RootLayout = ({ children }: Props): React.ReactNode => {
   return (
     <html lang="en" className={font.className}>
       <body className="bg-customGray dark:bg-customDarkPurple">

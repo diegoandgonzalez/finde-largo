@@ -8,6 +8,7 @@ import {
     formatDateToYYYYMMDD,
     getTodayObject
 } from "@/utils/date";
+import { WeekendType } from "@/utils/types";
 import Link from "next/link";
 
 export const metadata = {
@@ -30,7 +31,7 @@ const NextLongWeekends = async () => {
             </header>
             <ul className="mx-auto p-4">
                 {
-                    data?.longWeekends?.map((weekend, indexWeekend) => {
+                    data?.longWeekends?.map((weekend: WeekendType, indexWeekend: number) => {
                         return (
                             <li key={indexWeekend}>
                                 <div className="w-full md:w-3/4 lg:w-1/2 my-0 mx-auto bg-black bg-opacity-5 dark:bg-opacity-20 p-5 rounded-3xl">
