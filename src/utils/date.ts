@@ -16,7 +16,7 @@ export const getDateObjectFromYYYYMMDD = (dateString: string): Date => {
     return dayjs(dateString).toDate();
 }
 
-export const getDaysBetweenDates = (date1: Date, date2: Date): Number => {
+export const getDaysBetweenDates = (date1: Date, date2: Date): number => {
     return Math.round(dayjs(date1.setHours(0, 0, 0, 0)).diff(dayjs(date2.setHours(0, 0, 0, 0)), "day"));
 }
 
@@ -26,7 +26,7 @@ export const getLastSaturday = (date: Date): Date => {
     return saturday;
 }
 
-export const getDaysUntilLongWeekend = (dateFrom: Date, holidayDate: Date): Number => {
+export const getDaysUntilLongWeekend = (dateFrom: Date, holidayDate: Date): number => {
     if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) return 0;
     if (isDateOnDay(holidayDate, [4, 5])) return getDaysBetweenDates(holidayDate, dateFrom);
     return getDaysBetweenDates(getLastSaturday(holidayDate), dateFrom);
