@@ -13,6 +13,7 @@ Website that tells you when the next argentinean **long weekend** occurs.
 
 ## Technologies
 
+- TypeScript
 - React
 - Next.js 13 (with new [App Router](https://nextjs.org/docs/app))
 - Tailwind CSS
