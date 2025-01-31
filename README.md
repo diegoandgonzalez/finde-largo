@@ -3,7 +3,6 @@
 Website that tells you when the next argentinean **long weekend** occurs.
 
 ## Table of contents
-* [Live link](#live-link)
 * [Technologies](#technologies)
 * [Features](#features)
 * [Getting Started](#getting-started)
