@@ -1,3 +1,9 @@
+export type HolidayUnformattedType = {
+    fecha: string,
+    tipo: string,
+    nombre: string,
+}
+
 export type HolidaySerializableType = {
     date: string,
     description: string,

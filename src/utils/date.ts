@@ -26,6 +26,20 @@ export const getLastSaturday = (date: Date): Date => {
     return saturday;
 }
 
+export const getDayBeforeDate = (date: Date): Date => {
+    let yesterday = new Date(date);
+    yesterday.setHours(0, 0, 0, 0);
+    yesterday.setDate(yesterday.getDate() - 1);
+    return yesterday;
+}
+
+export const getDayAfterDate = (date: Date): Date => {
+    let tomorrow = new Date(date);
+    tomorrow.setHours(0, 0, 0, 0);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    return tomorrow;
+}
+
 export const getDaysUntilLongWeekend = (dateFrom: Date, holidayDate: Date): number => {
     if (isDateOnDay(dateFrom, [6, 0]) && isDateInLongWeekendRange(dateFrom, holidayDate)) return 0;
     if (isDateOnDay(holidayDate, [4, 5])) return getDaysBetweenDates(holidayDate, dateFrom);

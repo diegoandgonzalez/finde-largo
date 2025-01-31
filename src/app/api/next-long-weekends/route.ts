@@ -6,15 +6,17 @@ import {
 import { WeekendSerializableType } from "@/utils/types";
 import dayjs from "dayjs";
 import { NextResponse } from "next/server";
-import { getHolidaysInWorkDays } from "../getter";
+import { getLongWeekendHolidays } from "../getter";
 
 export async function GET(req: Request) {
     const { searchParams } = new URL(req.url);
     const dateFrom = searchParams.get('from') ? getDateObjectFromYYYYMMDD(searchParams.get('from')) : new Date();
     dateFrom.setHours(0, 0, 0, 0);
 
-    const holidaysAfterDate = getHolidaysInWorkDays().filter(({ date }) => dayjs(date).isAfter(dateFrom));
+    const holidays = await getLongWeekendHolidays();
+    const holidaysAfterDate = holidays.filter(({ date }) => dayjs(date).isAfter(dateFrom));
     const longWeekends: WeekendSerializableType[] = [];
+    
     let index = 0;
 
     for (const holiday of holidaysAfterDate) {
