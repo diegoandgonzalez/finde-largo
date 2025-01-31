@@ -7,5 +7,5 @@ export const getData = async (url: string, timeToRevalidate = DEFAULT_TIME_TO_RE
     return await fetch(url, { next: { revalidate: timeToRevalidate } })
         .then((response) => response.json())
         .then((json) => json)
-        .catch(err => err);
+        .catch(() => null);
 }

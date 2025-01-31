@@ -24,7 +24,9 @@ export async function GET(req: Request) {
     });
 
 
-    if (!nextHoliday) return new Response("Holiday not found", { status: 404 });
+    if (!nextHoliday) {
+        return new Response("Holiday not found", { status: 404 });
+    }
 
     return NextResponse.json({
         daysUntilLongWeekend: getDaysUntilLongWeekend(dateFrom, getDateObjectFromYYYYMMDD(nextHoliday.date)),

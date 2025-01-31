@@ -22,7 +22,7 @@ const Home = async () => {
             <>
               <LongWeekend
                 daysUntilLongWeekend={data.daysUntilLongWeekend}
-                holidays={[{ date: data.date, description: data.description }]}
+                holidays={[data]}
               />
               <Link className="text-customMain text-xl md:text-3xl underline" href="/next-long-weekends">
                 {"Ver próximos findes largos"}

@@ -8,6 +8,9 @@ type Props = HolidayType & {
 }
 
 const Holiday = ({ date, description, small }: Props): React.ReactNode => {
+
+    if (!date) return null;
+
     return (
         <>
             <p className={small ? "text-xl" : "text-2xl md:text-4xl"}>{formatDateLongText(date)}:</p>
