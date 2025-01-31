@@ -8,9 +8,6 @@ Website that tells you when the next argentinean **long weekend** occurs.
 * [Features](#features)
 * [Getting Started](#getting-started)
 
-## Live link
-[https://finde-largo.vercel.app/](https://finde-largo.vercel.app/)
-
 ## Technologies
 
 - TypeScript
