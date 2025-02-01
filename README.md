@@ -37,15 +37,9 @@ This file contains the environment variables that are injected by Next.js.
 It should include the following:
 
 ```javascript
-NEXT_PUBLIC_VERCEL_URL=localhost:3000
+NEXT_PUBLIC_URL=http://localhost:3000
 ```
 >Note: replace 3000 with your current development port.
----
-```javascript
-NEXT_PUBLIC_VERCEL_ENV=development
-```
-> When deployed to Vercel, it'll be replaced to **production**
-
 
 ### 3. Run development server
 
