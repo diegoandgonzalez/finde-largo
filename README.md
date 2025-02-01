@@ -3,12 +3,15 @@
 Website that tells you when the next argentinean **long weekend** occurs.
 
 ## Table of contents
+* [Live link](#live-link)
 * [Technologies](#technologies)
 * [Features](#features)
 * [Getting Started](#getting-started)
 
-## Technologies
+## Live link
+[https://finde-largo.vercel.app/](https://finde-largo.vercel.app/)
 
+## Technologies
 - TypeScript
 - React
 - Next.js (with [App Router](https://nextjs.org/docs/app))
