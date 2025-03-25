@@ -10,6 +10,7 @@ const Counter = ({ amount, small }: Props): React.ReactNode => {
         if (small) return <Accent>En {amount} días</Accent>;
         if (!amount) return <>No hay findes largos... <Accent>¿Qué pasó?</Accent></>
         if (amount <= 0) return <>Ya arrancó el <Accent>finde largo</Accent> 🥳</>;
+        if (amount === 1) return <>El <Accent>finde largo</Accent> arranca <Accent>mañana</Accent> 😬</>;
         if (amount <= 7) return <>El <Accent>finde largo</Accent> arranca en <Accent>{amount}</Accent> días 🥵</>;
         return <>Faltan <Accent>{amount}</Accent> días para el <Accent>finde largo</Accent> 😴</>;
     }
